@@ -1818,3 +1818,10 @@ textarea:focus {
     animation: none !important;
   }
 }
+.fadeTab{animation-name: fade;
+  animation-duration: 0.5s;
+}@keyframes fade{
+  from{opacity: 0.1;
+  }to
+  {opacity: 1;}
+} 
