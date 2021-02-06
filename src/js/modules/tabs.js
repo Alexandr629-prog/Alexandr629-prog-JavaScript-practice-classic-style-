@@ -18,7 +18,7 @@ const tabs = (headerSelector, tabSelector, contentSelector, activeClass)=>{
          
           function showTabContent(i = 0){
             content[i].style.display = 'block';
-            content[i].classList.add('fadeTab')
+            content[i].classList.add('fadeTab');
             tab[i].classList.add(activeClass, 'fadeTab');
             
           }
