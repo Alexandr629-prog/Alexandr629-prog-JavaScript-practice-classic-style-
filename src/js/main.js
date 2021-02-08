@@ -4,11 +4,15 @@ import tabs from './modules/tabs';
 import forms from './modules/forms';
 import changeModalState from './modules/changeModalState';
 import listenFullState from './modules/listenFullState';
+import timer from './modules/timer';
 
 window.addEventListener('DOMContentLoaded', () => {
     "use strict";
 
-    let modalState = {};
+    let modalState = {
+        form: 0,
+        type: "tree"
+    };
 
     changeModalState(modalState);
     modals();
@@ -17,4 +21,5 @@ window.addEventListener('DOMContentLoaded', () => {
     tabs('.balcon_icons', '.balcon_icons_img', '.big_img > img', 'do_image_more', 'inline-block');
     forms(modalState);
     listenFullState(modalState);
+    timer('#timer', '2021-02-28');
 });

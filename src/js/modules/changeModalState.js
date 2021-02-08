@@ -11,6 +11,7 @@ const changeModalState = (state) => {
           checkNumInputs('#height');
 
           function bindActionToElems(event, elem, prop){
+              
             elem.forEach((item, i)=>{
                 item.addEventListener(event, ()=>{
                     switch (item.nodeName){

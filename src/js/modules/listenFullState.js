@@ -1,13 +1,17 @@
 const fullState = (state)=>{
     function bindListenFullState(buttonNext){
     document.querySelector(buttonNext).addEventListener('click', ()=>{
-        if(Object.keys(state).length<3){
+        for (let key in state) {
+            if(state[key]===''){
+                listenState('[data-modal]', '.popup_calc', '.popup_calc_button');
+            }
+        }
+        if(Object.keys(state).length<3 && buttonNext ==='.popup_calc_button'){
             
             listenState('[data-modal]', '.popup_calc', '.popup_calc_button');
 
-        }else if(Object.keys(state).length<5){
+        }else if(Object.keys(state).length<5 && buttonNext ==='.popup_calc_profile_button'){
             listenState('[data-modal]', '.popup_calc_profile', '.popup_calc_profile_button');
-
         }
     });
     }
@@ -18,12 +22,13 @@ const fullState = (state)=>{
             item.style.display = 'none';
         });
         document.querySelector(modalSelector).style.display ='block';
-        
         let statusMessage = document.createElement('div');
         statusMessage.classList.add('status');
-        document.querySelector(buttonNext).parentNode.appendChild(statusMessage);
-        statusMessage.textContent ='Введите все данные';
-
+        
+        if(!document.querySelector('.status')){
+         statusMessage.textContent ='Введите все данные';
+         document.querySelector(buttonNext).parentNode.appendChild(statusMessage);
+        }
         setTimeout(() => {
             statusMessage.remove();
         }, 3000);
